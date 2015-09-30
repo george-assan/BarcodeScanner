@@ -1,0 +1,81 @@
+<!DOCTYPE html> 
+<html>
+<head>
+
+<link rel="stylesheet" href="jquery.mobile-1.4.5.min.css" />
+<link rel="stylesheet" href="jquery.mobile.icons-1.4.5.min.css" />
+<script src="jquery-2.1.4.js"></script>
+<script src="jquery.mobile-1.4.5.min.js"></script>
+<script src="cordova.js"</script>
+
+<link rel="stylesheet" href= "jquery-mobile-theme-021342-0/themes/georgetheme.css">
+
+
+<script>
+ function sendRequest ( u )
+           {
+               var obj = $.ajax({url:u,async:false});
+                var result=$.parseJSON(obj.responseText);
+                return result;
+           }
+		   
+function addAddress(){
+	
+	var name = encodeURI(document.getElementById("name").value);
+	var tel = encodeURI(document.getElementById("tel").value);
+	var email = encodeURI(document.getElementById("email").value);
+	
+	 var url = "http://cs.ashesi.edu.gh/~csashesi/class2016/george-assan/MobileWeb/phonegapp/controller.php?cmd=1&nme="+name+"&tl="+tel+"&em="+email;
+     var obj = sendRequest ( url );
+
+	$ ( "#status" ).text (obj);
+}
+
+function scan(){
+	cordova.plugins.barcodeScanner.scan(
+      function (result) {
+          alert("We got a barcode\n" +
+                "Result: " + result.text + "\n" +
+                "Format: " + result.format + "\n" +
+                "Cancelled: " + result.cancelled);
+      }, 
+      function (error) {
+          alert("Scanning failed: " + error);
+      }
+   );
+}
+
+</script>
+</head>
+<body>
+<div data-role="page" id="pageone">
+
+<div data-role="header">
+
+<h1>Barcode Scanner</h1>
+
+</div>
+<div class="ui-field-contain">
+  <label for="name">Readng:</label>
+  <input type="text" name="name" id="name" value="">
+</div>
+<div role="main" class="ui-content">
+<input type="button" value="scan" onclick="scan" >
+
+
+
+</div>
+
+<div data-role="footer">
+	<h1>George Designs</h1>
+  
+</div>
+
+</div>
+
+</body>
+
+</html>
+
+
+
