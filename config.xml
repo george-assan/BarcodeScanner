@@ -3,17 +3,17 @@
             xmlns:gap = "http://phonegap.com/ns/1.0"	
             id =	"com.george.pg2"	
             versionCode	=	"11"		
-            version	=	"1.0.0"	>	
+            version	=	"1.0.1"	>	
 				<!--	versionCode	is	opIonal	and	Android	only	-->	
 				<name>Barcode Scanner</name>	
 				<description>	
-								App for adding contacts into an address book
+								App for scanning barcodes
 				</description>	
 				<author	href="http://www.ashesi.edu.gh"	email="george.assan93@gmail.com">	
 								George Assan
 	
 				</author>	
         <icon src="icon.png"	/>	
-        <gap:splash	src="splash.png"/>	
-		<gap:plugin name="com.phonegap.plugins.barcodescanner" version="2.2.0" />
+        <gap:splash src="splash.png"/>	
+	gap:plugin name="com.phonegap.plugins.barcodescanner" version="2.2.0" />
 </widget>	
