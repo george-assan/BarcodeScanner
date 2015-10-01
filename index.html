@@ -6,31 +6,12 @@
 <link rel="stylesheet" href="jquery.mobile.icons-1.4.5.min.css" />
 <script src="jquery-2.1.4.js"></script>
 <script src="jquery.mobile-1.4.5.min.js"></script>
-<script src="cordova.js"</script>
+<script src="cordova.js"></script>
 
 <link rel="stylesheet" href= "jquery-mobile-theme-021342-0/themes/georgetheme.css">
 
 
 <script>
- function sendRequest ( u )
-           {
-               var obj = $.ajax({url:u,async:false});
-                var result=$.parseJSON(obj.responseText);
-                return result;
-           }
-		   
-function addAddress(){
-	
-	var name = encodeURI(document.getElementById("name").value);
-	var tel = encodeURI(document.getElementById("tel").value);
-	var email = encodeURI(document.getElementById("email").value);
-	
-	 var url = "http://cs.ashesi.edu.gh/~csashesi/class2016/george-assan/MobileWeb/phonegapp/controller.php?cmd=1&nme="+name+"&tl="+tel+"&em="+email;
-     var obj = sendRequest ( url );
-
-	$ ( "#status" ).text (obj);
-}
-
 function scan(){
 	cordova.plugins.barcodeScanner.scan(
       function (result) {
@@ -61,9 +42,6 @@ function scan(){
 </div>
 <div role="main" class="ui-content">
 <input type="button" value="scan" onclick="scan()" >
-
-
-
 </div>
 
 <div data-role="footer">
